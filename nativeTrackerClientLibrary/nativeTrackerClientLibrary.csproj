@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,6 +21,10 @@
     <ItemGroup>
       <None Remove="Protos\Tracking.proto" />
       <Protobuf Include="Protos\Tracking.proto" />
+      <None Remove="Protos\Vehicles.proto" />
+      <Protobuf Include="Protos\Vehicles.proto" />
+      <None Remove="Protos\Clients.proto" />
+      <Protobuf Include="Protos\Clients.proto" />
     </ItemGroup>
 
 </Project>
