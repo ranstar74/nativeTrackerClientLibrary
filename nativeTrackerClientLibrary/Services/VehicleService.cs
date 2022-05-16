@@ -14,7 +14,7 @@ public class VehicleService : ProtoServiceBase
 
     public IAsyncEnumerable<GetVehiclesResponse> GetVehicles()
     {
-        using var response = _client.GetVehicles(
+        var response = _client.GetVehicles(
             new GetVehiclesRequest());
         return response.ResponseStream.ReadAllAsync();
     }
