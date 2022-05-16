@@ -11,14 +11,14 @@ public class ClientService : ProtoServiceBase
         _client = new nativeTrackerClientService.ClientService.ClientServiceClient(Channel);
     }
 
-    public async Task<CreateStatus> CreateAccount(CreateAccountRequest request)
+    public async Task<CreateStatus> CreateAccountAsync(CreateAccountRequest request)
     {
         var result = await _client.CreateAccountAsync(request);
 
         return result.Status;
     }
 
-    public async Task<bool> LoginAccount(string login, string password)
+    public async Task<bool> LoginAccountAsync(string login, string password)
     {
         var response = await _client.LoginAccountAsync(new LoginAccountRequest()
         {
@@ -28,5 +28,14 @@ public class ClientService : ProtoServiceBase
 
         CredentialsManager.Token = response.Token;
         return response.Authorized;
+    }
+
+    public async Task<bool> ValidateTokenAsync(string token)
+    {
+        var result = await _client.ValidateTokenAsync(new ValidateTokenRequest()
+        {
+            Token = token
+        });
+        return result.IsValid;
     }
 }
