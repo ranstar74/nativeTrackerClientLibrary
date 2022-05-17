@@ -52,6 +52,10 @@ namespace nativeTrackerClientService {
     static readonly grpc::Marshaller<global::nativeTrackerClientService.GetVehiclesRequest> __Marshaller_Vehicles_GetVehiclesRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::nativeTrackerClientService.GetVehiclesRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::nativeTrackerClientService.GetVehiclesResponse> __Marshaller_Vehicles_GetVehiclesResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::nativeTrackerClientService.GetVehiclesResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::nativeTrackerClientService.AddVehicleRequest> __Marshaller_Vehicles_AddVehicleRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::nativeTrackerClientService.AddVehicleRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::nativeTrackerClientService.AddVehicleResponse> __Marshaller_Vehicles_AddVehicleResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::nativeTrackerClientService.AddVehicleResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::nativeTrackerClientService.GetVehiclesRequest, global::nativeTrackerClientService.GetVehiclesResponse> __Method_GetVehicles = new grpc::Method<global::nativeTrackerClientService.GetVehiclesRequest, global::nativeTrackerClientService.GetVehiclesResponse>(
@@ -60,6 +64,14 @@ namespace nativeTrackerClientService {
         "GetVehicles",
         __Marshaller_Vehicles_GetVehiclesRequest,
         __Marshaller_Vehicles_GetVehiclesResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::nativeTrackerClientService.AddVehicleRequest, global::nativeTrackerClientService.AddVehicleResponse> __Method_AddVehicle = new grpc::Method<global::nativeTrackerClientService.AddVehicleRequest, global::nativeTrackerClientService.AddVehicleResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "AddVehicle",
+        __Marshaller_Vehicles_AddVehicleRequest,
+        __Marshaller_Vehicles_AddVehicleResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -73,6 +85,12 @@ namespace nativeTrackerClientService {
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task GetVehicles(global::nativeTrackerClientService.GetVehiclesRequest request, grpc::IServerStreamWriter<global::nativeTrackerClientService.GetVehiclesResponse> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::nativeTrackerClientService.AddVehicleResponse> AddVehicle(global::nativeTrackerClientService.AddVehicleRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -116,6 +134,26 @@ namespace nativeTrackerClientService {
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_GetVehicles, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::nativeTrackerClientService.AddVehicleResponse AddVehicle(global::nativeTrackerClientService.AddVehicleRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return AddVehicle(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::nativeTrackerClientService.AddVehicleResponse AddVehicle(global::nativeTrackerClientService.AddVehicleRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_AddVehicle, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::nativeTrackerClientService.AddVehicleResponse> AddVehicleAsync(global::nativeTrackerClientService.AddVehicleRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return AddVehicleAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::nativeTrackerClientService.AddVehicleResponse> AddVehicleAsync(global::nativeTrackerClientService.AddVehicleRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_AddVehicle, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override VehicleServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -130,7 +168,8 @@ namespace nativeTrackerClientService {
     public static grpc::ServerServiceDefinition BindService(VehicleServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetVehicles, serviceImpl.GetVehicles).Build();
+          .AddMethod(__Method_GetVehicles, serviceImpl.GetVehicles)
+          .AddMethod(__Method_AddVehicle, serviceImpl.AddVehicle).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -141,6 +180,7 @@ namespace nativeTrackerClientService {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, VehicleServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_GetVehicles, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::nativeTrackerClientService.GetVehiclesRequest, global::nativeTrackerClientService.GetVehiclesResponse>(serviceImpl.GetVehicles));
+      serviceBinder.AddMethod(__Method_AddVehicle, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::nativeTrackerClientService.AddVehicleRequest, global::nativeTrackerClientService.AddVehicleResponse>(serviceImpl.AddVehicle));
     }
 
   }
