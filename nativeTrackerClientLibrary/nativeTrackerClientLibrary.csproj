@@ -25,6 +25,8 @@
       <Protobuf Include="Protos\Vehicles.proto" />
       <None Remove="Protos\Clients.proto" />
       <Protobuf Include="Protos\Clients.proto" />
+      <None Remove="Protos\InstallationIssues.proto" />
+      <Protobuf Include="Protos\InstallationIssues.proto" />
     </ItemGroup>
 
 </Project>
