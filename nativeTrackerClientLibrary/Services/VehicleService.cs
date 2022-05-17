@@ -18,4 +18,9 @@ public class VehicleService : ProtoServiceBase
             new GetVehiclesRequest());
         return response.ResponseStream.ReadAllAsync();
     }
+
+    public async Task<EditVehicleResponse> EditVehicle(EditVehicleRequest request)
+    {
+        return await _client.EditVehicleAsync(request);
+    }
 }
